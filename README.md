@@ -75,6 +75,6 @@ This project was created as part of a data labeling and algorithm exploration ex
 
 ---
 
-## 📜 License
+## License
 
 MIT License (add if applicable)
