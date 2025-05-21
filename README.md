@@ -7,15 +7,18 @@ A lightweight Python project for experimenting with data labeling using clusteri
 ## Project Structure
 
 ```
-Etiquetador/
-├── KNN.py                # Implementation of the K-Nearest Neighbors algorithm
-├── Kmeans.py             # K-Means clustering for unsupervised labeling
-├── my_labeling.py        # Core labeling logic
-├── TestCases_knn.py      # Test cases for KNN
-├── TestCases_kmeans.py   # Test cases for K-Means
-├── utils.py              # General-purpose utilities
-├── utils_data.py         # Data loading and preprocessing helpers
-├── images/gt.json        # Ground truth annotations (JSON format)
+├── KNN.py                 # K-Nearest Neighbors algorithm
+├── Kmeans.py              # K-Means clustering algorithm
+├── my_labeling.py         # Core logic for applying labels
+├── TestCases_knn.py       # Unit tests for KNN
+├── TestCases_kmeans.py    # Unit tests for K-Means
+├── utils.py               # General utility functions
+├── utils_data.py          # Data loading and preprocessing
+├── gt.json                # Full ground truth annotations
+├── gt_reduced.json        # Reduced/filtered ground truth (for testing)
+├── train.zip              # Zipped training dataset (images)
+├── test.zip               # Zipped test dataset (images)
+├── README.md              # Project description and instructions
 ```
 
 ---
@@ -23,28 +26,42 @@ Etiquetador/
 ## Features
 
 - Manual and automatic labeling strategies
-- Unsupervised clustering (KMeans)
+- Unsupervised clustering (K-Means)
 - Supervised classification (KNN)
-- Easy-to-run test cases
-- Designed to be extendable with minimal dependencies
+- Test cases to validate correctness
+- Dataset included as compressed `.zip` files
 
 ---
 
 ## Running the Project
 
-You can run tests using:
+To run the tests:
 
 ```bash
-pytest Etiquetador/TestCases_knn.py
-pytest Etiquetador/TestCases_kmeans.py
+pytest TestCases_knn.py
+pytest TestCases_kmeans.py
 ```
 
-Or run scripts individually:
+To run the scripts manually:
 
 ```bash
-python Etiquetador/Kmeans.py
-python Etiquetador/KNN.py
+python Kmeans.py
+python KNN.py
 ```
+
+---
+
+## Dataset Access
+
+- Training and test images are included as `.zip` files: `train.zip` and `test.zip`
+- To extract them:
+
+```bash
+unzip train.zip -d train/
+unzip test.zip -d test/
+```
+
+Make sure the images are in the correct folders if used by any script.
 
 ---
 
@@ -52,10 +69,9 @@ python Etiquetador/KNN.py
 
 - Python 3.6+
 - NumPy
-- scikit-learn (for real-world extension, if needed)
-- pytest (for test cases)
+- pytest
 
-To install dependencies:
+Install with:
 
 ```bash
 pip install numpy pytest
@@ -63,13 +79,14 @@ pip install numpy pytest
 
 ---
 
-## Ground Truth Format
+## Ground Truth
 
-The file `images/gt.json` contains ground truth labels in JSON format used for validating labeling performance.
+- `gt.json`: Full annotations
+- `gt_reduced.json`: Lighter subset for development/testing
 
 ---
 
-## Author
+## ✍️ Author
 
 This project was created as part of a data labeling and algorithm exploration exercise.
 
